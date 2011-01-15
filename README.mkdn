@@ -1,0 +1,71 @@
+# NAME
+
+App::mkfeyorm - Make skeleton code with Fey::ORM
+
+# VERSION
+
+version 0.001
+
+# SYNOPSIS
+
+# ATTRIBUTES
+
+## schema
+
+Schema module name
+
+## tables
+
+Table module name list
+
+## output_path
+
+Output path for generated modules
+
+## namespace
+
+Namespace for schema and table module
+
+## table_namespace
+
+Namespace for table module
+
+## schema_namespace
+
+Namespace for schema module
+
+## template_path
+
+Template path. Default is the module installed directory.
+If you want to use your own template file then use this attribute.
+
+## schema_template
+
+Schema template file. Default is 'schema.tt'
+If you want to use your own template file then use this attribute.
+
+## table_template
+
+Table template file. Default is 'table.tt'
+If you want to use your own template file then use this attribute.
+
+# METHODS
+
+## process
+
+Make the skeleton perl module.
+
+# SEE ALSO
+
+[Fey::ORM](http://search.cpan.org/perldoc?Fey::ORM)
+
+# AUTHOR
+
+Keedi Kim - 김도형 <keedi@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2011 by Keedi Kim.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
