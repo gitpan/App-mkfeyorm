@@ -26,4 +26,4 @@ requires:
   utf8: 0
 resources:
   repository: http://github.com/keedi/App-mkfeyorm.git
-version: 0.001
+version: 0.002

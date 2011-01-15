@@ -4,19 +4,46 @@ App::mkfeyorm - Make skeleton code with Fey::ORM
 
 # VERSION
 
-version 0.001
+version 0.002
 
 # SYNOPSIS
+
+    use App::mkfeyorm;
+    
+
+    my $app = App::mkfeyorm->new(
+        output_path      => 'somewhere/lib',
+        schema           => 'Schema.pm',
+        tables           => [qw(
+            MC::User
+            MC::Role
+            MC::UserRole
+            AE::Source
+            AE::Task
+            CM::Source
+            CM::Task
+        )],
+        namespace        => 'MedicalCoding',
+        table_namespace  => 'Model',
+    );
+    
+
+    $app->process;
+
+# DESCRIPTION
+
+This module generates Fey::ORM based module on the fly.
+At least `schema` and `tables` attributes are needed.
 
 # ATTRIBUTES
 
 ## schema
 
-Schema module name
+Schema module name (required)
 
 ## tables
 
-Table module name list
+Table module name list (required)
 
 ## output_path
 

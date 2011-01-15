@@ -1,6 +1,6 @@
 package App::mkfeyorm;
 BEGIN {
-  $App::mkfeyorm::VERSION = '0.001';
+  $App::mkfeyorm::VERSION = '0.002';
 }
 # ABSTRACT: Make skeleton code with Fey::ORM
 
@@ -188,19 +188,44 @@ App::mkfeyorm - Make skeleton code with Fey::ORM
 
 =head1 VERSION
 
-version 0.001
+version 0.002
 
 =head1 SYNOPSIS
+
+    use App::mkfeyorm;
+    
+    my $app = App::mkfeyorm->new(
+        output_path      => 'somewhere/lib',
+        schema           => 'Schema.pm',
+        tables           => [qw(
+            MC::User
+            MC::Role
+            MC::UserRole
+            AE::Source
+            AE::Task
+            CM::Source
+            CM::Task
+        )],
+        namespace        => 'MedicalCoding',
+        table_namespace  => 'Model',
+    );
+    
+    $app->process;
+
+=head1 DESCRIPTION
+
+This module generates Fey::ORM based module on the fly.
+At least C<schema> and C<tables> attributes are needed.
 
 =head1 ATTRIBUTES
 
 =head2 schema
 
-Schema module name
+Schema module name (required)
 
 =head2 tables
 
-Table module name list
+Table module name list (required)
 
 =head2 output_path
 
