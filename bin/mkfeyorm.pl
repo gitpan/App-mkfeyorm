@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# ABSTRACT: Make skeleton code with Fey::ORM
+# ABSTRACT: L<App::mkfeyorm> wrapper script. Make skeleton code with L<Fey::ORM>.
 # PODNAME: mkfeyorm.pl
 
 use utf8;
@@ -49,25 +49,25 @@ $app->process;
 
 =head1 NAME
 
-mkfeyorm.pl - Make skeleton code with Fey::ORM
+mkfeyorm.pl - L<App::mkfeyorm> wrapper script. Make skeleton code with L<Fey::ORM>.
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 
-$ mkfeyorm.pl \
-    --namespace MedicalCoding::Test \
-    --table_namespace Model \
-    --schema Schema \
-    --table AE::Source \
-    --table AE::Task \
-    --table CM::Source \
-    --table CM::Task \
-    --table MC::User \
-    --table MC::Role \
-    --table MC::UserRole
+    $ mkfeyorm.pl \
+        --namespace MedicalCoding::Test \
+        --table_namespace Model \
+        --schema Schema \
+        --table AE::Source \
+        --table AE::Task \
+        --table CM::Source \
+        --table CM::Task \
+        --table MC::User \
+        --table MC::Role \
+        --table MC::UserRole
 
 =head1 DESCRIPTION
 

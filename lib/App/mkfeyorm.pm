@@ -1,8 +1,8 @@
 package App::mkfeyorm;
 BEGIN {
-  $App::mkfeyorm::VERSION = '0.002';
+  $App::mkfeyorm::VERSION = '0.003';
 }
-# ABSTRACT: Make skeleton code with Fey::ORM
+# ABSTRACT: Make skeleton code with L<Fey::ORM>
 
 use Moose;
 use MooseX::SemiAffordanceAccessor;
@@ -184,11 +184,11 @@ no Moose;
 
 =head1 NAME
 
-App::mkfeyorm - Make skeleton code with Fey::ORM
+App::mkfeyorm - Make skeleton code with L<Fey::ORM>
 
 =head1 VERSION
 
-version 0.002
+version 0.003
 
 =head1 SYNOPSIS
 

@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker 6.31;
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'Make skeleton code with Fey::ORM',
+  'ABSTRACT' => 'Make skeleton code with L<Fey::ORM>',
   'AUTHOR' => 'Keedi Kim - 김도형 <keedi@cpan.org>',
   'BUILD_REQUIRES' => {
     'Test::More' => '0'
@@ -35,7 +35,7 @@ my %WriteMakefileArgs = (
     'namespace::autoclean' => '0',
     'utf8' => '0'
   },
-  'VERSION' => '0.002',
+  'VERSION' => '0.003',
   'test' => {
     'TESTS' => 't/*.t'
   }

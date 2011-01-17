@@ -1,10 +1,10 @@
 # NAME
 
-App::mkfeyorm - Make skeleton code with Fey::ORM
+App::mkfeyorm - Make skeleton code with [Fey::ORM](http://search.cpan.org/perldoc?Fey::ORM)
 
 # VERSION
 
-version 0.002
+version 0.003
 
 # SYNOPSIS
 
