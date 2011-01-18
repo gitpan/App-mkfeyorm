@@ -1,8 +1,8 @@
 package App::mkfeyorm;
 BEGIN {
-  $App::mkfeyorm::VERSION = '0.003';
+  $App::mkfeyorm::VERSION = '0.004';
 }
-# ABSTRACT: Make skeleton code with L<Fey::ORM>
+# ABSTRACT: Make skeleton code with Fey::ORM
 
 use Moose;
 use MooseX::SemiAffordanceAccessor;
@@ -184,11 +184,11 @@ no Moose;
 
 =head1 NAME
 
-App::mkfeyorm - Make skeleton code with L<Fey::ORM>
+App::mkfeyorm - Make skeleton code with Fey::ORM
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 
@@ -196,7 +196,7 @@ version 0.003
     
     my $app = App::mkfeyorm->new(
         output_path      => 'somewhere/lib',
-        schema           => 'Schema.pm',
+        schema           => 'Schema',
         tables           => [qw(
             MC::User
             MC::Role
@@ -214,7 +214,7 @@ version 0.003
 
 =head1 DESCRIPTION
 
-This module generates Fey::ORM based module on the fly.
+This module generates L<Fey::ORM> based module on the fly.
 At least C<schema> and C<tables> attributes are needed.
 
 =head1 ATTRIBUTES
@@ -250,12 +250,12 @@ If you want to use your own template file then use this attribute.
 
 =head2 schema_template
 
-Schema template file. Default is 'schema.tt'
+Schema template file. Default is C<schema.tt>.
 If you want to use your own template file then use this attribute.
 
 =head2 table_template
 
-Table template file. Default is 'table.tt'
+Table template file. Default is C<table.tt>.
 If you want to use your own template file then use this attribute.
 
 =head1 METHODS

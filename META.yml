@@ -1,5 +1,5 @@
 ---
-abstract: 'Make skeleton code with L<Fey::ORM>'
+abstract: 'Make skeleton code with Fey::ORM'
 author:
   - 'Keedi Kim - 김도형 <keedi@cpan.org>'
 build_requires:
@@ -26,4 +26,4 @@ requires:
   utf8: 0
 resources:
   repository: http://github.com/keedi/App-mkfeyorm.git
-version: 0.003
+version: 0.004

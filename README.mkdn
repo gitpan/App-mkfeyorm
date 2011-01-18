@@ -1,10 +1,10 @@
 # NAME
 
-App::mkfeyorm - Make skeleton code with [Fey::ORM](http://search.cpan.org/perldoc?Fey::ORM)
+App::mkfeyorm - Make skeleton code with Fey::ORM
 
 # VERSION
 
-version 0.003
+version 0.004
 
 # SYNOPSIS
 
@@ -13,7 +13,7 @@ version 0.003
 
     my $app = App::mkfeyorm->new(
         output_path      => 'somewhere/lib',
-        schema           => 'Schema.pm',
+        schema           => 'Schema',
         tables           => [qw(
             MC::User
             MC::Role
@@ -32,7 +32,7 @@ version 0.003
 
 # DESCRIPTION
 
-This module generates Fey::ORM based module on the fly.
+This module generates [Fey::ORM](http://search.cpan.org/perldoc?Fey::ORM) based module on the fly.
 At least `schema` and `tables` attributes are needed.
 
 # ATTRIBUTES
@@ -68,12 +68,12 @@ If you want to use your own template file then use this attribute.
 
 ## schema_template
 
-Schema template file. Default is 'schema.tt'
+Schema template file. Default is `schema.tt`.
 If you want to use your own template file then use this attribute.
 
 ## table_template
 
-Table template file. Default is 'table.tt'
+Table template file. Default is `table.tt`.
 If you want to use your own template file then use this attribute.
 
 # METHODS

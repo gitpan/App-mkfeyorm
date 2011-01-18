@@ -53,7 +53,7 @@ mkfeyorm.pl - L<App::mkfeyorm> wrapper script. Make skeleton code with L<Fey::OR
 
 =head1 VERSION
 
-version 0.003
+version 0.004
 
 =head1 SYNOPSIS
 

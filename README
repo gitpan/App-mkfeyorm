@@ -1,9 +1,9 @@
 
 
 This archive contains the distribution App-mkfeyorm,
-version 0.003:
+version 0.004:
 
-  Make skeleton code with L<Fey::ORM>
+  Make skeleton code with Fey::ORM
 
 This software is copyright (c) 2011 by Keedi Kim.
 
