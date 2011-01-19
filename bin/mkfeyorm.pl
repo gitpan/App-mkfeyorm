@@ -1,5 +1,5 @@
 #!/usr/bin/env perl
-# ABSTRACT: L<App::mkfeyorm> wrapper script. Make skeleton code with L<Fey::ORM>.
+# ABSTRACT: App::mkfeyorm wrapper script. Make skeleton code with Fey::ORM.
 # PODNAME: mkfeyorm.pl
 
 use utf8;
@@ -16,6 +16,7 @@ my ( $opt, $usage ) = describe_options(
     [ 'namespace|n=s',      'base namespace'                            ],
     [ 'table_namespace=s',  'base table namespace'                      ],
     [ 'schema_namespace=s', 'base schema namespace'                     ],
+    [ 'cache',              'turn on cache feature'                     ],
     [
         'output_path|o=s',
         'base directory (default: lib/)',
@@ -37,6 +38,7 @@ my $app = App::mkfeyorm->new(
     namespace        => $opt->namespace        || q{},
     table_namespace  => $opt->table_namespace  || q{},
     schema_namespace => $opt->schema_namespace || q{},
+    cache            => $opt->cache            || 0,
 );
 
 $app->process;
@@ -49,11 +51,11 @@ $app->process;
 
 =head1 NAME
 
-mkfeyorm.pl - L<App::mkfeyorm> wrapper script. Make skeleton code with L<Fey::ORM>.
+mkfeyorm.pl - App::mkfeyorm wrapper script. Make skeleton code with Fey::ORM.
 
 =head1 VERSION
 
-version 0.004
+version 0.005
 
 =head1 SYNOPSIS
 

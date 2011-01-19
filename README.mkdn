@@ -4,7 +4,7 @@ App::mkfeyorm - Make skeleton code with Fey::ORM
 
 # VERSION
 
-version 0.004
+version 0.005
 
 # SYNOPSIS
 
@@ -75,6 +75,11 @@ If you want to use your own template file then use this attribute.
 
 Table template file. Default is `table.tt`.
 If you want to use your own template file then use this attribute.
+
+## cache
+
+Use cache feature or not. Default is false.
+It uses [Storable](http://search.cpan.org/perldoc?Storable) to save and load cache file.
 
 # METHODS
 
