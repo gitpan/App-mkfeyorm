@@ -1,10 +1,11 @@
 package App::mkfeyorm;
 BEGIN {
-  $App::mkfeyorm::VERSION = '0.005';
+  $App::mkfeyorm::VERSION = '0.006';
 }
 # ABSTRACT: Make skeleton code with Fey::ORM
 
 use Moose;
+use Moose::Util::TypeConstraints;
 use MooseX::SemiAffordanceAccessor;
 use MooseX::StrictConstructor;
 use namespace::autoclean;
@@ -24,10 +25,40 @@ has 'schema' => (
     required => 1,
 );
 
+subtype 'TableRef',
+    as 'HashRef';
+
+sub _db_table_name {
+    my $table = shift;
+
+    $table =~ s/([A-Z]+)::/"_\L$1_"/ge;
+    $table =~ s/([A-Z]+)([A-Z])/"_\L$1_$2"/ge;
+    $table =~ s/([A-Z])/"_\L$1"/ge;
+    $table =~ s/::/_/g;
+    $table =~ s/_+/_/g;
+    $table =~ s/^_//;
+
+    return $table;
+}
+
+coerce 'TableRef',
+    from 'ArrayRef',
+    via {
+        my %result = map { $_ => _db_table_name($_) } @$_;
+
+        \%result;
+    };
+
 has 'tables' => (
     is       => 'ro',
-    isa      => 'ArrayRef',
+    isa      => 'TableRef',
     required => 1,
+    coerce   => 1,
+);
+
+has '_db_tables' => (
+    is       => 'ro',
+    isa      => 'ArrayRef',
 );
 
 has 'output_path' => (
@@ -97,7 +128,7 @@ sub process {
     my $self = shift;
 
     $self->_process_schema;
-    $self->_process_table($_) for @{ $self->tables };
+    $self->_process_table($_, $self->tables->{$_}) for keys %{ $self->tables };
 }
 
 sub _process_schema {
@@ -117,7 +148,7 @@ sub _process_schema {
             '::',
             grep { $_ } ( $self->namespace, $self->table_namespace, $_ )
         );
-    } @{$self->tables};
+    } sort keys %{$self->tables};
 
     my $vars = {
         SCHEMA => $schema,
@@ -133,7 +164,9 @@ sub _process_schema {
 }
 
 sub _process_table {
-    my ( $self, $orig_table ) = @_;
+    my ( $self, $orig_table, $db_table ) = @_;
+
+    $db_table = _db_table_name($orig_table) unless $db_table;
 
     my $schema = join(
         '::',
@@ -152,14 +185,6 @@ sub _process_table {
             $orig_table,
         )
     );
-
-    my $db_table = $orig_table;
-    $db_table =~ s/([A-Z]+)::/"_\L$1_"/ge;
-    $db_table =~ s/([A-Z]+)([A-Z])/"_\L$1_$2"/ge;
-    $db_table =~ s/([A-Z])/"_\L$1"/ge;
-    $db_table =~ s/::/_/g;
-    $db_table =~ s/_+/_/g;
-    $db_table =~ s/^_//;
 
     my $vars = {
         SCHEMA   => $schema,
@@ -196,7 +221,7 @@ App::mkfeyorm - Make skeleton code with Fey::ORM
 
 =head1 VERSION
 
-version 0.005
+version 0.006
 
 =head1 SYNOPSIS
 

@@ -4,7 +4,7 @@ use warnings;
 
 
 
-use ExtUtils::MakeMaker 6.31;
+use ExtUtils::MakeMaker 6.30;
 
 
 
@@ -15,7 +15,7 @@ my %WriteMakefileArgs = (
     'Test::More' => '0'
   },
   'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.31'
+    'ExtUtils::MakeMaker' => '6.30'
   },
   'DISTNAME' => 'App-mkfeyorm',
   'EXE_FILES' => [
@@ -28,6 +28,7 @@ my %WriteMakefileArgs = (
     'File::Spec::Functions' => '0',
     'Getopt::Long::Descriptive' => '0',
     'Moose' => '0',
+    'Moose::Util::TypeConstraints' => '0',
     'MooseX::SemiAffordanceAccessor' => '0',
     'MooseX::StrictConstructor' => '0',
     'Template' => '0',
@@ -35,7 +36,7 @@ my %WriteMakefileArgs = (
     'namespace::autoclean' => '0',
     'utf8' => '0'
   },
-  'VERSION' => '0.005',
+  'VERSION' => '0.006',
   'test' => {
     'TESTS' => 't/*.t'
   }
