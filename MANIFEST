@@ -1,4 +1,5 @@
 Changes
+INSTALL
 LICENSE
 MANIFEST
 META.yml
@@ -8,8 +9,6 @@ README.mkdn
 bin/mkfeyorm.pl
 dist.ini
 lib/App/mkfeyorm.pm
-lib/App/mkfeyorm/schema.tt
-lib/App/mkfeyorm/table.tt
 t/release-pod-coverage.t
 t/release-pod-syntax.t
 weaver.ini

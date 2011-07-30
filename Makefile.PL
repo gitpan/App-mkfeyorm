@@ -24,6 +24,7 @@ my %WriteMakefileArgs = (
   'LICENSE' => 'perl',
   'NAME' => 'App::mkfeyorm',
   'PREREQ_PM' => {
+    'Data::Section' => '0',
     'File::Basename' => '0',
     'File::Spec::Functions' => '0',
     'Getopt::Long::Descriptive' => '0',
@@ -33,10 +34,9 @@ my %WriteMakefileArgs = (
     'MooseX::StrictConstructor' => '0',
     'Template' => '0',
     'autodie' => '0',
-    'namespace::autoclean' => '0',
     'utf8' => '0'
   },
-  'VERSION' => '0.006',
+  'VERSION' => '0.007',
   'test' => {
     'TESTS' => 't/*.t'
   }

@@ -4,7 +4,7 @@ App::mkfeyorm - Make skeleton code with Fey::ORM
 
 # VERSION
 
-version 0.006
+version 0.007
 
 # SYNOPSIS
 
@@ -41,13 +41,24 @@ At least `schema` and `tables` attributes are needed.
 
 Schema module name (required)
 
+    my $schema_module_name = $self->schema;
+    $self->set_schema($schema_module_name);
+
 ## tables
 
 Table module name list (required)
 
+    my $table_module_names_ref = $self->tables;
+    $self->set_tables(\@table_module_names);
+    $self->set_tables(\%table_module_names);
+
 ## output_path
 
-Output path for generated modules
+Output path for generated modules.
+Default output directory is `lib`.
+
+    my $output_path = $self->output_path;
+    $self->set_output_path($output_path);
 
 ## namespace
 
@@ -61,19 +72,14 @@ Namespace for table module
 
 Namespace for schema module
 
-## template_path
-
-Template path. Default is the module installed directory.
-If you want to use your own template file then use this attribute.
-
 ## schema_template
 
-Schema template file. Default is `schema.tt`.
+Schema template string.
 If you want to use your own template file then use this attribute.
 
 ## table_template
 
-Table template file. Default is `table.tt`.
+Table template string.
 If you want to use your own template file then use this attribute.
 
 ## cache
@@ -81,11 +87,50 @@ If you want to use your own template file then use this attribute.
 Use cache feature or not. Default is false.
 It uses [Storable](http://search.cpan.org/perldoc?Storable) to save and load cache file.
 
+## template_params
+
+Hash reference for templating.
+Set this attribute if you want to use additional parameters
+in your own templates.
+
 # METHODS
 
 ## process
 
-Make the skeleton perl module.
+Generate the schema module & table module
+
+    my $app = App::mkfeyorm->new(
+        schema          => 'Schema',
+        tables          => {
+            User     => 'user',
+            Role     => 'role',
+            UserRole => 'user_role',
+        },
+        namespace       => 'Web::Blog',
+        table_namespace => 'Model',
+    );
+    $app->process;
+
+## process_schema
+
+Generate the schema module.
+
+    $app->process_schema;
+
+## process_tables
+
+Generate the table module.
+
+    $app->process_tables;                  # generates all tables
+    $app->process_tables(qw/ User Role /); # generates User and Role tables
+
+## schema_module
+
+Get full name of schema module
+
+## table_modules
+
+Get full names of table modules
 
 # SEE ALSO
 
