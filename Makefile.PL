@@ -9,36 +9,38 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'Make skeleton code with Fey::ORM',
-  'AUTHOR' => 'Keedi Kim - 김도형 <keedi@cpan.org>',
-  'BUILD_REQUIRES' => {
-    'Test::More' => '0'
+  "ABSTRACT" => "Make skeleton code with Fey::ORM",
+  "AUTHOR" => "Keedi Kim - \352\271\200\353\217\204\355\230\225 <keedi\@cpan.org>",
+  "BUILD_REQUIRES" => {
+    "Test::More" => 0
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.30'
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-  'DISTNAME' => 'App-mkfeyorm',
-  'EXE_FILES' => [
-    'bin/mkfeyorm.pl'
+  "DISTNAME" => "App-mkfeyorm",
+  "EXE_FILES" => [
+    "bin/mkfeyorm.pl"
   ],
-  'LICENSE' => 'perl',
-  'NAME' => 'App::mkfeyorm',
-  'PREREQ_PM' => {
-    'Data::Section' => '0',
-    'File::Basename' => '0',
-    'File::Spec::Functions' => '0',
-    'Getopt::Long::Descriptive' => '0',
-    'Moose' => '0',
-    'Moose::Util::TypeConstraints' => '0',
-    'MooseX::SemiAffordanceAccessor' => '0',
-    'MooseX::StrictConstructor' => '0',
-    'Template' => '0',
-    'autodie' => '0',
-    'utf8' => '0'
+  "LICENSE" => "perl",
+  "NAME" => "App::mkfeyorm",
+  "PREREQ_PM" => {
+    "Data::Section" => 0,
+    "File::Basename" => 0,
+    "File::Spec::Functions" => 0,
+    "Getopt::Long::Descriptive" => 0,
+    "Moose" => 0,
+    "Moose::Util::TypeConstraints" => 0,
+    "MooseX::SemiAffordanceAccessor" => 0,
+    "MooseX::StrictConstructor" => 0,
+    "Template" => 0,
+    "autodie" => 0,
+    "strict" => 0,
+    "utf8" => 0,
+    "warnings" => 0
   },
-  'VERSION' => '0.008',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "0.009",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 

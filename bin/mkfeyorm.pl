@@ -61,7 +61,7 @@ mkfeyorm.pl - App::mkfeyorm wrapper script. Make skeleton code with Fey::ORM.
 
 =head1 VERSION
 
-version 0.008
+version 0.009
 
 =head1 SYNOPSIS
 
