@@ -25,6 +25,7 @@ my %WriteMakefileArgs = (
   "NAME" => "App::mkfeyorm",
   "PREREQ_PM" => {
     "Data::Section" => 0,
+    "Fey::Loader" => "0.13",
     "File::Basename" => 0,
     "File::Spec::Functions" => 0,
     "Getopt::Long::Descriptive" => 0,
@@ -38,7 +39,7 @@ my %WriteMakefileArgs = (
     "utf8" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.009",
+  "VERSION" => "0.010",
   "test" => {
     "TESTS" => "t/*.t"
   }

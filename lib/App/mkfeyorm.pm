@@ -1,6 +1,6 @@
 package App::mkfeyorm;
 {
-  $App::mkfeyorm::VERSION = '0.009';
+  $App::mkfeyorm::VERSION = '0.010';
 }
 # ABSTRACT: Make skeleton code with Fey::ORM
 
@@ -262,7 +262,7 @@ App::mkfeyorm - Make skeleton code with Fey::ORM
 
 =head1 VERSION
 
-version 0.009
+version 0.010
 
 =head1 SYNOPSIS
 
@@ -472,18 +472,7 @@ sub _load_schema {
         $schema = retrieve($params{cache_file});
     }
     else {
-        my $loader = Fey::Loader->new( dbh => $source->dbh );
-        my $dbh = $loader->dbh;
-        if (   $dbh
-            && $dbh->{Driver}
-            && $dbh->{Driver}{Name}
-            && $loader->dbh->{Driver}{Name} eq 'mysql' )
-        {
-            eval 'use DBD::mysql';
-            no warnings 'redefine';
-            *DBD::mysql::db::statistics_info = \&DBD::mysql::Fixup::_statistics_info;
-        }
-        $schema = $loader->make_schema;
+        $schema = Fey::Loader->new( dbh => $source->dbh )->make_schema;
     }
 [% ELSE -%]
     my $schema = Fey::Loader->new( dbh => $source->dbh )->make_schema;
